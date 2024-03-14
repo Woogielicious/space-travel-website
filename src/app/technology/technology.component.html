@@ -1,0 +1,51 @@
+<div class="container background-image">
+  <header class="main-header">
+    <app-navigation></app-navigation>
+  </header>
+
+  <ng-container *ngIf="technology$ | async as technology">
+    <main class="main">
+      <h2 class="headline"><span>03</span>Space launch 101</h2>
+      <section class="space-content">
+        <div class="space-left-content">
+          <ul>
+            <li>
+              <a
+                routerLink="/technology/Launch vehicle"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >1</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/technology/Spaceport"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >2</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/technology/Space capsule"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >3</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-center-content">
+          <div class="info-box">
+            <span>The Terminology...</span>
+            <h3>{{ technology.name }}</h3>
+            <p>{{ technology.description }}</p>
+          </div>
+        </div>
+        <div class="space-right-content">
+          <img [src]="technology.images.portrait" alt="{{ technology.name }}" />
+        </div>
+      </section>
+    </main>
+  </ng-container>
+</div>

@@ -1,0 +1,76 @@
+<div class="container background-image">
+  <header class="main-header">
+    <app-navigation></app-navigation>
+  </header>
+
+  <ng-container *ngIf="destination$ | async as destination">
+    <main class="main">
+      <h2 class="headline"><span>01</span>Pick your destination</h2>
+      <section class="space-content">
+        <div class="space-left-content">
+          <img [src]="destination.images.png" alt="{{ destination.name }}" />
+        </div>
+        <div class="space-right-content">
+          <div class="destination">
+            <div class="destination-nav">
+              <!-- Navigationslinks -->
+              <ul class="nav-list">
+                <li>
+                  <a
+                    routerLink="/destination/moon"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Moon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    routerLink="/destination/mars"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Mars</a
+                  >
+                </li>
+                <li>
+                  <a
+                    routerLink="/destination/europa"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Europa</a
+                  >
+                </li>
+                <li>
+                  <a
+                    routerLink="/destination/titan"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >Titan</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h1>{{ destination.name }}</h1>
+              <p>{{ destination.description }}</p>
+
+              <hr class="divider" />
+              <div class="small-info">
+                <div class="stats">
+                  <div class="label">Avg. Distance:</div>
+                  <br />
+                  <div class="info">{{ destination.distance }}</div>
+                </div>
+                <div class="stats">
+                  <div class="label">Est. Travel Time:</div>
+                  <br />
+                  <div class="info">{{ destination.travel }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </ng-container>
+</div>
